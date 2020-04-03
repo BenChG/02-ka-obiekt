@@ -3,7 +3,6 @@
 char MetodyPomocnicze::wybierzOpcjeZMenuGlownego()
 {
     char wybor;
-    AdresatMenedzer adresatMenedzer;
 
     system("cls");
     cout << "    >>> MENU  GLOWNE <<<" << endl;

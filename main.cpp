@@ -1,37 +1,35 @@
-#include "MetodyPomocnicze.h"
-#include "AdresatMenedzer.h"
+#include "KsiazkaAdresowa.h"
 
 using namespace std;
 
 int main()
 {
-    MetodyPomocnicze metodyPomocnicze;
-    AdresatMenedzer adresatMenedzer;
+    KsiazkaAdresowa ksiazkaAdresowa;
 
     char wybor;
     while (true)
     {
-        wybor = metodyPomocnicze.wybierzOpcjeZMenuGlownego();
+        wybor = ksiazkaAdresowa.wybierzOpcjeZMenuGlownego();
 
         switch (wybor)
         {
         case '1':
-            adresatMenedzer.dodajAdresata();
+            ksiazkaAdresowa.dodajAdresata();
             break;
         case '2':
-            adresatMenedzer.wyszukajPoImieniu();
+            ksiazkaAdresowa.wyszukajPoImieniu();
             break;
         case '3':
-            adresatMenedzer.wyszukajPoNazwisku();
+            ksiazkaAdresowa.wyszukajPoNazwisku();
             break;
         case '4':
-            adresatMenedzer.wyswietlWszystkichAdresatow();
+            ksiazkaAdresowa.wyswietlWszystkichAdresatow();
             break;
         case '5':
-            adresatMenedzer.usunAdresata();
+            ksiazkaAdresowa.usunAdresata();
             break;
         case '6':
-            adresatMenedzer.wyszukajAdresataDoEdycji();
+            ksiazkaAdresowa.wyszukajAdresataDoEdycji();
             break;
         case '9':
             exit(0);
