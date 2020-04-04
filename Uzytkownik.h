@@ -21,7 +21,7 @@ public:
     string pobierzNazweUzytkownika();
     string pobierzHasloUzytkownika();
 
-    Osoba (int idUzytkownika=0, string nazwaUzytkownika="", string hasloUzytkownika="")
+    Osoba (int=0, string nazwaUzytkownika="", string hasloUzytkownika="")
     {
         this->idUzytkownika = idUzytkownika;
         this->nazwaUzytkownika = nazwaUzytkownika;

@@ -11,6 +11,7 @@ class MetodyPomocnicze
     char wczytajZnak();
 
 public:
+    char wybierzOpcjeZMenuLogowania();
     char wybierzOpcjeZMenuGlownego();
     string wczytajLinie();
     string podajImie();

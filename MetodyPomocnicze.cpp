@@ -1,5 +1,23 @@
 #include "MetodyPomocnicze.h"
 
+
+char MetodyPomocnicze::wybierzOpcjeZMenuLogowania()
+{
+    char wybor;
+
+    system("cls");
+    cout << "    >>> MENU  LOGOWANIA <<<" << endl;
+    cout << "---------------------------" << endl;
+    cout << "1. Rejestracja" << endl;
+    cout << "2. Logowanie" << endl;
+    cout << "9. Zakoncz program" << endl;
+    cout << "---------------------------" << endl;
+    cout << "Twoj wybor: ";
+
+    wybor = wczytajZnak();
+    return wybor;
+}
+
 char MetodyPomocnicze::wybierzOpcjeZMenuGlownego()
 {
     char wybor;
