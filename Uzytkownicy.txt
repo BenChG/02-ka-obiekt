@@ -1,1 +1,2 @@
-1|Adam|Marian|0|0|0|
+1|Adam|1234|
+1|Marian|3213|

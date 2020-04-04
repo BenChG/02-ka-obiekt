@@ -1,5 +1,15 @@
 #include "KsiazkaAdresowa.h"
 
+char KsiazkaAdresowa::wybierzOpcjeZMenuLogowania()
+{
+metodyPomocnicze.wybierzOpcjeZMenuLogowania();
+}
+
+void KsiazkaAdresowa::rejestracjaUzytkownika()
+{
+uzytkownikMenedzer.rejestracjaUzytkownika();
+}
+
 char KsiazkaAdresowa::wybierzOpcjeZMenuGlownego()
 {
 metodyPomocnicze.wybierzOpcjeZMenuGlownego();
