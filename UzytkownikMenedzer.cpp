@@ -57,3 +57,33 @@ Uzytkownik UzytkownikMenedzer::rejestracjaUzytkownika()
     //linieAdresatow=plikiZAdresatami.wczytajLinieZPlikuDoWektora();
     return uzytkownik;
 }
+
+void UzytkownikMenedzer::wyswietlDaneUzytkownika(Uzytkownik uzytkownik)
+{
+    cout << "Id Uzytkownika:       " << uzytkownik.pobierzIdUzytkownika() << endl;
+    cout << "Nazwa uzytkownika:    " << uzytkownik.pobierzNazweUzytkownika() << endl;
+    cout << "Haslo Uzytkownia:     " << uzytkownik.pobierzHasloUzytkownika() << endl;
+}
+
+void UzytkownikMenedzer::wyswietlWszystkichUzytkownikow()
+{
+    system("cls");
+
+    if (!uzytkownicy.empty())
+    {
+        cout << "             >>> UZYTKOWNICY <<<" << endl;
+        cout << "-----------------------------------------------" << endl;
+        for (vector <Uzytkownik> :: iterator itr = uzytkownicy.begin(); itr != uzytkownicy.end(); itr++)
+        {
+            wyswietlDaneUzytkownika(*itr);
+            cout << endl;
+        }
+        cout << endl;
+    }
+
+    else
+    {
+        cout << endl << "Ksiazka uzytkownikow jest pusta." << endl << endl;
+    }
+    system("pause");
+}

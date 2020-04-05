@@ -5,6 +5,11 @@ char KsiazkaAdresowa::wybierzOpcjeZMenuLogowania()
 metodyPomocnicze.wybierzOpcjeZMenuLogowania();
 }
 
+void KsiazkaAdresowa::wyswietlWszystkichUzytkownikow()
+{
+uzytkownikMenedzer.wyswietlWszystkichUzytkownikow();
+}
+
 void KsiazkaAdresowa::rejestracjaUzytkownika()
 {
 uzytkownikMenedzer.rejestracjaUzytkownika();
