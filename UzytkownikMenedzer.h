@@ -12,24 +12,22 @@ using namespace std;
 class UzytkownikMenedzer
 {
     Uzytkownik uzytkownik;
-    //PlikiZUzytkownikami plikiZUzytkownikami;
+    PlikiZUzytkownikami plikiZUzytkownikami;
 
     vector <Uzytkownik> uzytkownicy;
-    //vector <string> linieAdresatow;
-    //string podaneImie;
-    //string podaneNazwisko;
 
 public:
 
-    /*
-    AdresatMenedzer()
+
+    UzytkownikMenedzer()
     {
-        adresaci=plikiZAdresatami.wczytajAdresatowZPliku();
-        linieAdresatow=plikiZAdresatami.wczytajLinieZPlikuDoWektora();
+        uzytkownicy=plikiZUzytkownikami.wczytajUzytkownikowZPliku();
     };
-    */
+
 
     Uzytkownik rejestracjaUzytkownika();
+    void wyswietlDaneUzytkownika(Uzytkownik uzytkownik);
+    void wyswietlWszystkichUzytkownikow();
 };
 
 #endif

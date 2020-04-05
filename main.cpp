@@ -24,6 +24,9 @@ int main()
                 ksiazkaAdresowa.rejestracjaUzytkownika();
                 break;
                 //iloscUzytkownikow = rejestracja (wczytajDaneZPlikuUzytkownicyDoWektoraStruktur(),iloscUzytkownikow);
+                case '2':
+                ksiazkaAdresowa.wyswietlWszystkichUzytkownikow();
+                break;
             }
         }
 
