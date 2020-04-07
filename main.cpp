@@ -10,77 +10,74 @@ int main()
     int idZalogowanegoUzytkownika=0;
     char wybor;
 
-    while(1)
+    while(true)
     {
         //int iloscUzytkownikow=wczytajDaneZPlikuUzytkownicyDoWektoraStruktur().size();
 
         if (idZalogowanegoUzytkownika == 0)
-        {
+    {
             wybor = ksiazkaAdresowa.wybierzOpcjeZMenuLogowania();
 
             switch (wybor)
             {
-                case '1':
+            case '1':
                 ksiazkaAdresowa.rejestracjaUzytkownika();
                 break;
-                //iloscUzytkownikow = rejestracja (wczytajDaneZPlikuUzytkownicyDoWektoraStruktur(),iloscUzytkownikow);
-                case '2':
+            //iloscUzytkownikow = rejestracja (wczytajDaneZPlikuUzytkownicyDoWektoraStruktur(),iloscUzytkownikow);
+            case '2':
+                idZalogowanegoUzytkownika=ksiazkaAdresowa.wyszukajUzytkownika();
+                break;
+            case '8':
                 ksiazkaAdresowa.wyswietlWszystkichUzytkownikow();
                 break;
-            }
-        }
-
-   /*
-            else if (wybor == '2')
-            {
-                idZalogowanegoUzytkownika=logowanie(wczytajDaneZPlikuUzytkownicyDoWektoraStruktur(),iloscUzytkownikow);
-            }
-            else if (wybor == '9')
-            {
+            case '9':
                 exit(0);
+                break;
+            default:
+                cout << endl << "Nie ma takiej opcji w menu." << endl << endl;
+                system("pause");
+                break;
+
             }
-        }
-
-
-        else
-        {
-
-
-            char wybor;
-            while (true)
-            {
-                wybor = ksiazkaAdresowa.wybierzOpcjeZMenuGlownego();
-
-                switch (wybor)
-                {
-                case '1':
-                    ksiazkaAdresowa.dodajAdresata();
-                    break;
-                case '2':
-                    ksiazkaAdresowa.wyszukajPoImieniu();
-                    break;
-                case '3':
-                    ksiazkaAdresowa.wyszukajPoNazwisku();
-                    break;
-                case '4':
-                    ksiazkaAdresowa.wyswietlWszystkichAdresatow();
-                    break;
-                case '5':
-                    ksiazkaAdresowa.usunAdresata();
-                    break;
-                case '6':
-                    ksiazkaAdresowa.wyszukajAdresataDoEdycji();
-                    break;
-                case '9':
-                    exit(0);
-                    break;
-                default:
-                    cout << endl << "Nie ma takiej opcji w menu." << endl << endl;
-                    system("pause");
-                    break;
-                }
-            }*/
-        }
-
-        return 0;
     }
+
+            else //if (idZalogowanegoUzytkownika==1)
+            {
+                char wybor;
+
+                    wybor = ksiazkaAdresowa.wybierzOpcjeZMenuGlownego();
+
+                    switch (wybor)
+                    {
+                    case '1':
+                        ksiazkaAdresowa.dodajAdresata();
+                        break;
+                    case '2':
+                        ksiazkaAdresowa.wyszukajPoImieniu();
+                        break;
+                    case '3':
+                        ksiazkaAdresowa.wyszukajPoNazwisku();
+                        break;
+                    case '4':
+                        ksiazkaAdresowa.wyswietlWszystkichAdresatow();
+                        break;
+                    case '5':
+                        ksiazkaAdresowa.usunAdresata();
+                        break;
+                    case '6':
+                        ksiazkaAdresowa.wyszukajAdresataDoEdycji();
+                        break;
+                    case '9':
+                        exit(0);
+                        break;
+                    default:
+                        cout << endl << "Nie ma takiej opcji w menu." << endl << endl;
+                        system("pause");
+                        break;
+                    }
+                }
+            }
+
+            return 0;
+        }
+

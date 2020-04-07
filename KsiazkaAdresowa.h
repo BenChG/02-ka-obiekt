@@ -16,6 +16,7 @@ class KsiazkaAdresowa
 public:
     char wybierzOpcjeZMenuLogowania();
     void rejestracjaUzytkownika();
+    int wyszukajUzytkownika();
     void wyswietlWszystkichUzytkownikow();
     char wybierzOpcjeZMenuGlownego();
     void dodajAdresata();

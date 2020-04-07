@@ -26,6 +26,8 @@ public:
 
 
     Uzytkownik rejestracjaUzytkownika();
+    int wyszukajUzytkownika();
+    int logowanieUzytkownika(Uzytkownik uzytkownik, string nazwa);
     void wyswietlDaneUzytkownika(Uzytkownik uzytkownik);
     void wyswietlWszystkichUzytkownikow();
 };
