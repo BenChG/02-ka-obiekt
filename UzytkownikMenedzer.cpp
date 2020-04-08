@@ -122,7 +122,11 @@ int UzytkownikMenedzer::wyszukajUzytkownika()
     }
 }
 
-
+ int UzytkownikMenedzer::wylogujUzytkownika()
+ {
+  int idZalogowanegoUzytkownika = 0;
+  return idZalogowanegoUzytkownika;
+ }
 
 void UzytkownikMenedzer::wyswietlDaneUzytkownika(Uzytkownik uzytkownik)
 {
