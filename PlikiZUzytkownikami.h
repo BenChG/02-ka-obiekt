@@ -11,10 +11,12 @@ using namespace std;
 class PlikiZUzytkownikami
 {
     vector <Uzytkownik> uzytkownicy;
+    vector <string> linieuzytkownikow;
     Uzytkownik uzytkownik;
 
 public:
     vector <Uzytkownik> wczytajUzytkownikowZPliku();
+    vector <string> wczytajLinieZPlikuDoWektora();
 };
 
 #endif

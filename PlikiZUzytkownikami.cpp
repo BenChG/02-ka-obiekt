@@ -52,6 +52,25 @@ vector <Uzytkownik> PlikiZUzytkownikami::wczytajUzytkownikowZPliku()
     return uzytkownicy;
 }
 
+vector <string> PlikiZUzytkownikami::wczytajLinieZPlikuDoWektora ()
+{
+    vector <string> linieUzytkownikow;
+    string linia;
+    linieUzytkownikow.clear();
 
+    fstream plik;
+    plik.open("Uzytkownicy.txt",ios::in);
+
+    if (plik.good()==true)
+    {
+        while(getline(plik,linia))
+        {
+            linieUzytkownikow.push_back(linia);
+        }
+        plik.close();
+    }
+
+    return linieUzytkownikow;
+}
 
 

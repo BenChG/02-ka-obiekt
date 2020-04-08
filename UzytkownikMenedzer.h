@@ -15,6 +15,8 @@ class UzytkownikMenedzer
     PlikiZUzytkownikami plikiZUzytkownikami;
 
     vector <Uzytkownik> uzytkownicy;
+    vector <string> linieUzytkownikow;
+    int idZalogowanegoUzytkownika;
 
 public:
 
@@ -22,15 +24,19 @@ public:
     UzytkownikMenedzer()
     {
         uzytkownicy=plikiZUzytkownikami.wczytajUzytkownikowZPliku();
+        linieUzytkownikow=plikiZUzytkownikami.wczytajLinieZPlikuDoWektora();
+        idZalogowanegoUzytkownika=0;
     };
-
 
     Uzytkownik rejestracjaUzytkownika();
     int wyszukajUzytkownika();
     int logowanieUzytkownika(Uzytkownik uzytkownik, string nazwa);
     void wyswietlDaneUzytkownika(Uzytkownik uzytkownik);
     void wyswietlWszystkichUzytkownikow();
-    int wylogujUzytkownika();
+    void wylogujUzytkownika();
+    void zmianaHaslaUzytkownika();
+    string edytujUzytkownika(Uzytkownik uzytkownik, string linia, string noweHaslo);
+    int pobierzIdZalogowanegoUzytkownika();
 };
 
 #endif

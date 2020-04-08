@@ -6,15 +6,12 @@ int main()
 {
     KsiazkaAdresowa ksiazkaAdresowa;
 
-
     int idZalogowanegoUzytkownika=0;
     char wybor;
 
     while(true)
     {
-        //int iloscUzytkownikow=wczytajDaneZPlikuUzytkownicyDoWektoraStruktur().size();
-
-        if (idZalogowanegoUzytkownika == 0)
+        if (ksiazkaAdresowa.pobierzIdZalogowanegoUzytkownika()==0)
         {
             wybor = ksiazkaAdresowa.wybierzOpcjeZMenuLogowania();
 
@@ -23,7 +20,6 @@ int main()
             case '1':
                 ksiazkaAdresowa.rejestracjaUzytkownika();
                 break;
-            //iloscUzytkownikow = rejestracja (wczytajDaneZPlikuUzytkownicyDoWektoraStruktur(),iloscUzytkownikow);
             case '2':
                 idZalogowanegoUzytkownika=ksiazkaAdresowa.wyszukajUzytkownika();
                 break;
@@ -37,11 +33,10 @@ int main()
                 cout << endl << "Nie ma takiej opcji w menu." << endl << endl;
                 system("pause");
                 break;
-
             }
         }
 
-        else //if (idZalogowanegoUzytkownika==1)
+        else
         {
             char wybor;
 
@@ -68,10 +63,10 @@ int main()
                 ksiazkaAdresowa.wyszukajAdresataDoEdycji();
                 break;
             case '7':
-                //ksiazkaAdresowa.wyszukajAdresataDoEdycji();
+                ksiazkaAdresowa.zmianaHaslaUzytkownika();
                 break;
             case '8':
-                idZalogowanegoUzytkownika=ksiazkaAdresowa.wylogujUzytkownika();
+                ksiazkaAdresowa.wylogujUzytkownika();
                 break;
             case '9':
                 exit(0);

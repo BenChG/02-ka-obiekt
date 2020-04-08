@@ -75,7 +75,7 @@ int UzytkownikMenedzer::logowanieUzytkownika(Uzytkownik uzytkownik, string nazwa
                 system ("pause");
                 czyHasloJestPoprawne = "TAK";
 
-                idZnalezionegoUzytkownia=uzytkownik.pobierzIdUzytkownika();
+                idZalogowanegoUzytkownika=uzytkownik.pobierzIdUzytkownika();
 
                 proby=2;
             }
@@ -89,7 +89,7 @@ int UzytkownikMenedzer::logowanieUzytkownika(Uzytkownik uzytkownik, string nazwa
         }
     }
 
-    return idZnalezionegoUzytkownia;
+    return idZalogowanegoUzytkownika;
 }
 
 int UzytkownikMenedzer::wyszukajUzytkownika()
@@ -97,7 +97,7 @@ int UzytkownikMenedzer::wyszukajUzytkownika()
     if (!uzytkownicy.empty())
     {
         string nazwa;
-        int idZnalezionegoUzytkownika=0;
+        int idZalogowanegoUzytkownika=0;
 
         cout << "Podaj nazwe: ";
         cin >> nazwa;
@@ -105,28 +105,22 @@ int UzytkownikMenedzer::wyszukajUzytkownika()
 
         for (vector <Uzytkownik> :: iterator itr = uzytkownicy.begin(); itr != uzytkownicy.end(); itr++)
         {
-            idZnalezionegoUzytkownika=logowanieUzytkownika(*itr, nazwa);
-            if (idZnalezionegoUzytkownika!=0)
+            idZalogowanegoUzytkownika=logowanieUzytkownika(*itr, nazwa);
+            if (idZalogowanegoUzytkownika!=0)
             {
-                return idZnalezionegoUzytkownika;
+                return idZalogowanegoUzytkownika;
             }
 
         }
 
-        if (idZnalezionegoUzytkownika==0)
+        if (idZalogowanegoUzytkownika==0)
         {
             cout << "Nie ma uzytkownika z takim loginem." << endl;
             system ("pause");
-            return idZnalezionegoUzytkownika;
+            return idZalogowanegoUzytkownika;
         }
     }
 }
-
- int UzytkownikMenedzer::wylogujUzytkownika()
- {
-  int idZalogowanegoUzytkownika = 0;
-  return idZalogowanegoUzytkownika;
- }
 
 void UzytkownikMenedzer::wyswietlDaneUzytkownika(Uzytkownik uzytkownik)
 {
@@ -156,4 +150,88 @@ void UzytkownikMenedzer::wyswietlWszystkichUzytkownikow()
         cout << endl << "Ksiazka uzytkownikow jest pusta." << endl << endl;
     }
     system("pause");
+}
+
+string UzytkownikMenedzer::edytujUzytkownika(Uzytkownik uzytkownik, string linia, string noweHaslo)
+{
+    int dlugoscLinii=linia.length();
+    int ostatniZnak[3];
+    int k=0;
+    int pierwszyZnak=0;
+
+    string idUzytkownika;
+    string nazwaUzytkownika;
+    string hasloUzytkownika;
+    string nowyWyraz;
+
+    for (int znak=0; znak<dlugoscLinii; znak++)
+    {
+        if(linia[znak]==124)
+        {
+            ostatniZnak[k]=znak;
+            k++;
+        }
+    }
+    nowyWyraz=linia.substr(pierwszyZnak,ostatniZnak[0]-pierwszyZnak);
+    idUzytkownika=nowyWyraz;
+    pierwszyZnak=ostatniZnak[0]+1;
+
+    nowyWyraz=linia.substr(pierwszyZnak,ostatniZnak[1]-pierwszyZnak);
+    nazwaUzytkownika=nowyWyraz;
+    pierwszyZnak=ostatniZnak[1]+1;
+
+    nowyWyraz=linia.substr(pierwszyZnak,ostatniZnak[2]-pierwszyZnak);
+    hasloUzytkownika=nowyWyraz;
+    pierwszyZnak=ostatniZnak[2]+1;
+
+    linia=idUzytkownika+"|"+nazwaUzytkownika+"|"+noweHaslo+"|";
+    return linia;
+}
+
+void UzytkownikMenedzer::zmianaHaslaUzytkownika()
+{
+    Uzytkownik uzytkownik;
+    MetodyPomocnicze metodyPomocnicze;
+
+    int ileUzytkownikow=linieUzytkownikow.size()-1;
+
+    cout << "idZalogowanegoUzytkownika" << idZalogowanegoUzytkownika << endl;
+    string noweHaslo;
+    cout << "Podaj nowe haslo uzytkownika: " << endl;
+    cin >> noweHaslo;
+
+    fstream plik;
+    plik.open("Uzytkownicy.txt", ios::out);
+
+    if (plik.good() == true)
+    {
+        for (int itr = 0; itr <= ileUzytkownikow; itr++)
+        {
+            int id=atoi(linieUzytkownikow[itr].c_str());
+            if (id==idZalogowanegoUzytkownika)
+            {
+                string trescDoEdycji=linieUzytkownikow[itr];
+                plik << edytujUzytkownika(uzytkownik, trescDoEdycji, noweHaslo) << endl;
+            }
+
+            else
+            {
+                plik << linieUzytkownikow[itr] << endl;
+            }
+        }
+        plik.close();
+
+        uzytkownicy=plikiZUzytkownikami.wczytajUzytkownikowZPliku();
+        linieUzytkownikow=plikiZUzytkownikami.wczytajLinieZPlikuDoWektora();
+    }
+}
+
+void UzytkownikMenedzer::wylogujUzytkownika()
+{
+    idZalogowanegoUzytkownika = 0;
+}
+
+int UzytkownikMenedzer::pobierzIdZalogowanegoUzytkownika()
+{
+    return idZalogowanegoUzytkownika;
 }

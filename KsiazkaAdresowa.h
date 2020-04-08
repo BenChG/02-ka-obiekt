@@ -25,7 +25,9 @@ public:
     void wyswietlWszystkichAdresatow();
     void usunAdresata();
     void wyszukajAdresataDoEdycji();
-    int wylogujUzytkownika();
+    void wylogujUzytkownika();
+  void zmianaHaslaUzytkownika();
+  int pobierzIdZalogowanegoUzytkownika();
 
 };
 
