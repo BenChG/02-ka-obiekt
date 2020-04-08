@@ -55,7 +55,17 @@ void KsiazkaAdresowa::wyszukajAdresataDoEdycji()
   adresatMenedzer.wyszukajAdresataDoEdycji();
 }
 
-int KsiazkaAdresowa::wylogujUzytkownika()
+void KsiazkaAdresowa::wylogujUzytkownika()
 {
   uzytkownikMenedzer.wylogujUzytkownika();
+}
+
+void KsiazkaAdresowa::zmianaHaslaUzytkownika()
+{
+  uzytkownikMenedzer.zmianaHaslaUzytkownika();
+}
+
+int KsiazkaAdresowa::pobierzIdZalogowanegoUzytkownika()
+{
+  uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika();
 }
