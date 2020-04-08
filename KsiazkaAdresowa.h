@@ -25,6 +25,7 @@ public:
     void wyswietlWszystkichAdresatow();
     void usunAdresata();
     void wyszukajAdresataDoEdycji();
+    int wylogujUzytkownika();
 
 };
 

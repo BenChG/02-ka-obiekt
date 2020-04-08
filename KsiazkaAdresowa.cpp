@@ -54,3 +54,8 @@ void KsiazkaAdresowa::wyszukajAdresataDoEdycji()
 {
   adresatMenedzer.wyszukajAdresataDoEdycji();
 }
+
+int KsiazkaAdresowa::wylogujUzytkownika()
+{
+  uzytkownikMenedzer.wylogujUzytkownika();
+}
