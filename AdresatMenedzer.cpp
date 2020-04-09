@@ -59,7 +59,7 @@ Adresat AdresatMenedzer::dodajAdresata()
         plik.close();
 
     cout << endl << "Adresat zostal dodany." << endl;
-    cout << "Wielkosc wektora adresaci: " << adresaci.size() << endl << endl;
+    //cout << "Wielkosc wektora adresaci: " << adresaci.size() << endl << endl;
     }
 
     else

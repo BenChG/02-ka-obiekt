@@ -6,22 +6,18 @@ Uzytkownik UzytkownikMenedzer::rejestracjaUzytkownika()
     MetodyPomocnicze metodyPomocnicze;
 
     string nazwaUzytkownika, hasloUzytkownika;
-    int idUzytkownika=1;
+    int idUzytkownika=0;
+
+    if (uzytkownicy.size()>=1)
+    {
+        idUzytkownika=uzytkownicy.size()+1;
+    }
 
     cout << "Podaj nazwe uzytkownika: ";
     nazwaUzytkownika = metodyPomocnicze.wczytajLinie();
 
     cout << "Podaj haslo uzytkownika: ";
     hasloUzytkownika = metodyPomocnicze.wczytajLinie();
-
-
-    /*
-    if (uzytkownicy.size()>=1)
-    {
-        int ostatniElement=linieAdresatow.size()-1;
-        id=atoi(linieAdresatow[ostatniElement].c_str())+1;
-    }
-    */
 
     uzytkownik.ustawIdUzytkownika(idUzytkownika);
     uzytkownik.ustawNazweUzytkownika(nazwaUzytkownika);
@@ -44,7 +40,7 @@ Uzytkownik UzytkownikMenedzer::rejestracjaUzytkownika()
         plik.close();
 
         cout << endl << "Uzytkownik zostal dodany." << endl;
-        cout << "Wielkosc wektora uzytkownicy: " << uzytkownicy.size() << endl << endl;
+        //cout << "Wielkosc wektora uzytkownicy: " << uzytkownicy.size() << endl << endl;
     }
 
     else
@@ -54,7 +50,7 @@ Uzytkownik UzytkownikMenedzer::rejestracjaUzytkownika()
 
     system("pause");
 
-    //linieAdresatow=plikiZAdresatami.wczytajLinieZPlikuDoWektora();
+    linieUzytkownikow=plikiZUzytkownikami.wczytajLinieZPlikuDoWektora();
     return uzytkownik;
 }
 

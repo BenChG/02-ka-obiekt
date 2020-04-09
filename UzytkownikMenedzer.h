@@ -4,8 +4,6 @@
 #include "Uzytkownik.h"
 #include "PlikiZUzytkownikami.h"
 #include "MetodyPomocnicze.h"
-#include <vector>
-#include <fstream>
 
 using namespace std;
 
@@ -18,8 +16,11 @@ class UzytkownikMenedzer
     vector <string> linieUzytkownikow;
     int idZalogowanegoUzytkownika;
 
-public:
+    int logowanieUzytkownika(Uzytkownik uzytkownik, string nazwa);
+    void wyswietlDaneUzytkownika(Uzytkownik uzytkownik);
+    string edytujUzytkownika(Uzytkownik uzytkownik, string linia, string noweHaslo);
 
+public:
 
     UzytkownikMenedzer()
     {
@@ -30,13 +31,11 @@ public:
 
     Uzytkownik rejestracjaUzytkownika();
     int wyszukajUzytkownika();
-    int logowanieUzytkownika(Uzytkownik uzytkownik, string nazwa);
-    void wyswietlDaneUzytkownika(Uzytkownik uzytkownik);
-    void wyswietlWszystkichUzytkownikow();
-    void wylogujUzytkownika();
-    void zmianaHaslaUzytkownika();
-    string edytujUzytkownika(Uzytkownik uzytkownik, string linia, string noweHaslo);
     int pobierzIdZalogowanegoUzytkownika();
+    void zmianaHaslaUzytkownika();
+    void wylogujUzytkownika();
+
+     void wyswietlWszystkichUzytkownikow();
 };
 
 #endif
