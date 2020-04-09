@@ -3,8 +3,6 @@
 
 #include "UzytkownikMenedzer.h"
 #include "AdresatMenedzer.h"
-#include "MetodyPomocnicze.h"
-#include <iostream>
 using namespace std;
 
 class KsiazkaAdresowa
@@ -26,9 +24,8 @@ public:
     void usunAdresata();
     void wyszukajAdresataDoEdycji();
     void wylogujUzytkownika();
-  void zmianaHaslaUzytkownika();
-  int pobierzIdZalogowanegoUzytkownika();
-
+    void zmianaHaslaUzytkownika();
+    int pobierzIdZalogowanegoUzytkownika();
 };
 
 #endif

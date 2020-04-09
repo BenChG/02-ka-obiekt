@@ -1,6 +1,5 @@
 #include "MetodyPomocnicze.h"
 
-
 char MetodyPomocnicze::wybierzOpcjeZMenuLogowania()
 {
     char wybor;
