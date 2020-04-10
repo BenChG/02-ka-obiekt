@@ -7,7 +7,8 @@ using namespace std;
 
 class Adresat
 {
-    int id;
+    int idAdresata;
+    int idUzytkownika;
     string imie;
     string nazwisko;
     string numerTelefonu;
@@ -16,23 +17,26 @@ class Adresat
 
 public:
 
-    void ustawId(int noweId);
+    void ustawIdAdresata(int noweIdAdresata);
+    void ustawIdUzytkownika(int noweIdUzytkownika);
     void ustawImie (string noweNazwisko);
     void ustawNazwisko (string noweNazwisko);
     void ustawNumerTelefonu (string nowyNumerTelefonu);
     void ustawEmail(string nowyEmail);
     void ustawAdres (string nowyAdres);
 
-    int pobierzId();
+    int pobierzIdAdresata();
+    int pobierzIdUzytkownika();
     string pobierzImie();
     string pobierzNazwisko();
     string pobierzNumerTelefonu();
     string pobierzEmail();
     string pobierzAdres();
 
-    Osoba (int=0, string imie="", string nazwisko="", string numerTelefonu="", string email="", string adres="")
+    Osoba (int idAdresata=0, int idUzytkownika=0, string imie="", string nazwisko="", string numerTelefonu="", string email="", string adres="")
     {
-        this->id = id;
+        this->idAdresata = idAdresata;
+        this->idUzytkownika = idUzytkownika;
         this->imie = imie;
         this->nazwisko = nazwisko;
         this->numerTelefonu = numerTelefonu;
