@@ -27,9 +27,9 @@ public:
     {
         adresaci=plikiZAdresatami.wczytajAdresatowZPliku();
         linieAdresatow=plikiZAdresatami.wczytajLinieZPlikuDoWektora();
-    };
+    };    Adresat dodajAdresata();
 
-    Adresat dodajAdresata();
+
     void wyszukajPoImieniu();
     void wyszukajPoNazwisku();
     void wyswietlWszystkichAdresatow();

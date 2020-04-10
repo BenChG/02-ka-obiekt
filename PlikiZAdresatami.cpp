@@ -7,8 +7,9 @@ vector <Adresat> PlikiZAdresatami::wczytajAdresatowZPliku()
     adresaci.clear();
 
     string imie, nazwisko, numerTelefonu, email, adres;
-    int id;
-    int ostatniZnak[6];
+    int idAdresata;
+    int idUzytkownika;
+    int ostatniZnak[7];
     string nowyWyraz;
     string linia;
 
@@ -31,29 +32,34 @@ vector <Adresat> PlikiZAdresatami::wczytajAdresatowZPliku()
             }
 
             nowyWyraz=linia.substr(pierwszyZnak,ostatniZnak[0]-pierwszyZnak);
-            id=atoi(linia.c_str());
+            idAdresata=atoi(linia.c_str());
             pierwszyZnak=ostatniZnak[0]+1;
 
             nowyWyraz=linia.substr(pierwszyZnak,ostatniZnak[1]-pierwszyZnak);
-            imie=nowyWyraz;
+            idUzytkownika=atoi(linia.c_str());
             pierwszyZnak=ostatniZnak[1]+1;
 
             nowyWyraz=linia.substr(pierwszyZnak,ostatniZnak[2]-pierwszyZnak);
-            nazwisko=nowyWyraz;
+            imie=nowyWyraz;
             pierwszyZnak=ostatniZnak[2]+1;
 
             nowyWyraz=linia.substr(pierwszyZnak,ostatniZnak[3]-pierwszyZnak);
-            numerTelefonu=nowyWyraz;
+            nazwisko=nowyWyraz;
             pierwszyZnak=ostatniZnak[3]+1;
 
             nowyWyraz=linia.substr(pierwszyZnak,ostatniZnak[4]-pierwszyZnak);
-            email=nowyWyraz;
+            numerTelefonu=nowyWyraz;
             pierwszyZnak=ostatniZnak[4]+1;
 
             nowyWyraz=linia.substr(pierwszyZnak,ostatniZnak[5]-pierwszyZnak);
+            email=nowyWyraz;
+            pierwszyZnak=ostatniZnak[5]+1;
+
+            nowyWyraz=linia.substr(pierwszyZnak,ostatniZnak[6]-pierwszyZnak);
             adres=nowyWyraz;
 
-            adresat.ustawId(id);
+            adresat.ustawIdAdresata(idAdresata);
+            adresat.ustawIdUzytkownika(idUzytkownika);
             adresat.ustawImie(imie);
             adresat.ustawNazwisko(nazwisko);
             adresat.ustawNumerTelefonu(numerTelefonu);

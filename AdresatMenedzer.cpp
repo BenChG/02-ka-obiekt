@@ -6,7 +6,7 @@ Adresat AdresatMenedzer::dodajAdresata()
     MetodyPomocnicze metodyPomocnicze;
 
     string imie, nazwisko, numerTelefonu, email, adres;
-    int id=1;
+    int idAdresata=1, idUzytkownika;
 
     cout << "Podaj imie: ";
     imie = metodyPomocnicze.wczytajLinie();
@@ -26,10 +26,11 @@ Adresat AdresatMenedzer::dodajAdresata()
     if (linieAdresatow.size()>=1)
     {
         int ostatniElement=linieAdresatow.size()-1;
-        id=atoi(linieAdresatow[ostatniElement].c_str())+1;
+        idAdresata=atoi(linieAdresatow[ostatniElement].c_str())+1;
     }
 
-    adresat.ustawId(id);
+    adresat.ustawIdAdresata(idAdresata);
+    adresat.ustawIdUzytkownika(idUzytkownika);
     adresat.ustawImie(imie);
     adresat.ustawNazwisko(nazwisko);
     adresat.ustawNumerTelefonu(numerTelefonu);
@@ -43,7 +44,9 @@ Adresat AdresatMenedzer::dodajAdresata()
 
     if (plik.good() == true)
     {
-        plik << adresat.pobierzId();
+        plik << adresat.pobierzIdAdresata();
+        plik << "|";
+        plik << adresat.pobierzIdUzytkownika();
         plik << "|";
         plik << adresat.pobierzImie();
         plik << "|";
@@ -100,7 +103,7 @@ string AdresatMenedzer::wyswietlaniePoImieniu (Adresat adresat, string podaneImi
     if (adresat.pobierzImie() == podaneImie)
     {
         cout << endl;
-        cout << "ID: " << adresat.pobierzId()<< endl;
+        cout << "ID: " << adresat.pobierzIdAdresata()<< endl;
         cout << adresat.pobierzImie() << " " << adresat.pobierzNazwisko() << endl;
         cout << "Telefon: " <<adresat.pobierzNumerTelefonu() << endl;
         cout << "Email: " << adresat.pobierzEmail() << endl;
@@ -145,7 +148,7 @@ string AdresatMenedzer::wyswietlaniePoNazwisku(Adresat adresat, string podaneNaz
     if (adresat.pobierzNazwisko() == podaneNazwisko)
     {
         cout << endl;
-        cout << "ID: " << adresat.pobierzId()<< endl;
+        cout << "ID: " << adresat.pobierzIdAdresata() << endl;
         cout << adresat.pobierzImie() << " " << adresat.pobierzNazwisko() << endl;
         cout << "Telefon: " << adresat.pobierzNumerTelefonu() << endl;
         cout << "Email: " << adresat.pobierzEmail() << endl;
@@ -165,7 +168,7 @@ string AdresatMenedzer::wyswietlaniePoNazwisku(Adresat adresat, string podaneNaz
 
 void AdresatMenedzer::wyswietlDaneAdresata(Adresat adresat)
 {
-    cout << "Id:         "         << adresat.pobierzId() << endl;
+    cout << "Id:         "         << adresat.pobierzIdAdresata() << endl;
     cout << "Imie:               " << adresat.pobierzImie() << endl;
     cout << "Nazwisko:           " << adresat.pobierzNazwisko() << endl;
     cout << "Numer telefonu:     " << adresat.pobierzNumerTelefonu() << endl;
