@@ -10,11 +10,6 @@ int KsiazkaAdresowa::wyszukajUzytkownika()
     uzytkownikMenedzer.wyszukajUzytkownika();
 }
 
-void KsiazkaAdresowa::wyswietlWszystkichUzytkownikow()
-{
-    uzytkownikMenedzer.wyswietlWszystkichUzytkownikow();
-}
-
 void KsiazkaAdresowa::rejestracjaUzytkownika()
 {
     uzytkownikMenedzer.rejestracjaUzytkownika();
@@ -25,34 +20,34 @@ char KsiazkaAdresowa::wybierzOpcjeZMenuGlownego()
     metodyPomocnicze.wybierzOpcjeZMenuGlownego();
 }
 
-void KsiazkaAdresowa::dodajAdresata()
+void KsiazkaAdresowa::dodajAdresata(int idZalogowanegoUzytkownika)
 {
-    adresatMenedzer.dodajAdresata();
+    adresatMenedzer.dodajAdresata(idZalogowanegoUzytkownika);
 }
 
-void KsiazkaAdresowa::wyszukajPoImieniu()
+void KsiazkaAdresowa::wyszukajPoImieniu(int idZalogowanegoUzytkownika)
 {
-    adresatMenedzer.wyszukajPoImieniu();
+    adresatMenedzer.wyszukajPoImieniu(idZalogowanegoUzytkownika);
 }
 
-void KsiazkaAdresowa::wyszukajPoNazwisku()
+void KsiazkaAdresowa::wyszukajPoNazwisku(int idZalogowanegoUzytkownika)
 {
-    adresatMenedzer.wyszukajPoNazwisku();
+    adresatMenedzer.wyszukajPoNazwisku(idZalogowanegoUzytkownika);
 }
 
-void KsiazkaAdresowa::wyswietlWszystkichAdresatow()
+void KsiazkaAdresowa::wyswietlWszystkichAdresatow(int idZalogowanegoUzytkownika)
 {
-    adresatMenedzer.wyswietlWszystkichAdresatow();
+    adresatMenedzer.wyswietlWszystkichAdresatow(idZalogowanegoUzytkownika);
 }
 
-void KsiazkaAdresowa::usunAdresata()
+void KsiazkaAdresowa::usunAdresata(int idZalogowanegoUzytkownika)
 {
-    adresatMenedzer.usunAdresata();
+    adresatMenedzer.usunAdresata(idZalogowanegoUzytkownika);
 }
 
-void KsiazkaAdresowa::wyszukajAdresataDoEdycji()
+void KsiazkaAdresowa::wyszukajAdresataDoEdycji(int idZalogowanegoUzytkownika)
 {
-    adresatMenedzer.wyszukajAdresataDoEdycji();
+    adresatMenedzer.wyszukajAdresataDoEdycji(idZalogowanegoUzytkownika);
 }
 
 void KsiazkaAdresowa::wylogujUzytkownika()

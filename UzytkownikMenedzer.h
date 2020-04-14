@@ -34,8 +34,6 @@ public:
     int pobierzIdZalogowanegoUzytkownika();
     void zmianaHaslaUzytkownika();
     void wylogujUzytkownika();
-
-     void wyswietlWszystkichUzytkownikow();
 };
 
 #endif

@@ -32,11 +32,11 @@ vector <Adresat> PlikiZAdresatami::wczytajAdresatowZPliku()
             }
 
             nowyWyraz=linia.substr(pierwszyZnak,ostatniZnak[0]-pierwszyZnak);
-            idAdresata=atoi(linia.c_str());
+            idAdresata=atoi(nowyWyraz.c_str());
             pierwszyZnak=ostatniZnak[0]+1;
 
             nowyWyraz=linia.substr(pierwszyZnak,ostatniZnak[1]-pierwszyZnak);
-            idUzytkownika=atoi(linia.c_str());
+            idUzytkownika=atoi(nowyWyraz.c_str());
             pierwszyZnak=ostatniZnak[1]+1;
 
             nowyWyraz=linia.substr(pierwszyZnak,ostatniZnak[2]-pierwszyZnak);

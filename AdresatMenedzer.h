@@ -17,9 +17,9 @@ class AdresatMenedzer
     string podaneImie;
     string podaneNazwisko;
 
-    void wyswietlDaneAdresata(Adresat adresat);
-    string wyswietlaniePoImieniu(Adresat adresat, string podaneImie);
-    string wyswietlaniePoNazwisku(Adresat adresat, string podaneNazwisko);
+    void wyswietlDaneAdresata(Adresat adresat, int idZalogowanegoUzytkownika);
+    string wyswietlaniePoImieniu(Adresat adresat, string podaneImie, int idZalogowanegoUzytkowika);
+    string wyswietlaniePoNazwisku(Adresat adresat, string podaneNazwisko, int idZalogowanegoUzytkownika);
     string edytujAdresata(Adresat adresat, string trescDoEdycji, string zmianaDanych, char wybor);
 
 public:
@@ -27,14 +27,14 @@ public:
     {
         adresaci=plikiZAdresatami.wczytajAdresatowZPliku();
         linieAdresatow=plikiZAdresatami.wczytajLinieZPlikuDoWektora();
-    };    Adresat dodajAdresata();
+    };
 
-
-    void wyszukajPoImieniu();
-    void wyszukajPoNazwisku();
-    void wyswietlWszystkichAdresatow();
-    void usunAdresata();
-    void wyszukajAdresataDoEdycji();
+    Adresat dodajAdresata(int idZalogowanegoUzytkownika);
+    void wyszukajPoImieniu(int idZalogowanegoUzytkownika);
+    void wyszukajPoNazwisku(int idZalogowanegoUzytkownika);
+    void wyswietlWszystkichAdresatow(int idZalogowanegoUzytkownika);
+    void usunAdresata(int idZalogowanegoUzytkownika);
+    void wyszukajAdresataDoEdycji(int idZalogowanegoUzytkownika);
 };
 
 #endif

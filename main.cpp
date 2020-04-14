@@ -23,9 +23,6 @@ int main()
             case '2':
                 idZalogowanegoUzytkownika=ksiazkaAdresowa.wyszukajUzytkownika();
                 break;
-            case '8':
-                ksiazkaAdresowa.wyswietlWszystkichUzytkownikow();
-                break;
             case '9':
                 exit(0);
                 break;
@@ -45,22 +42,22 @@ int main()
             switch (wybor)
             {
             case '1':
-                ksiazkaAdresowa.dodajAdresata();
+                ksiazkaAdresowa.dodajAdresata(idZalogowanegoUzytkownika);
                 break;
             case '2':
-                ksiazkaAdresowa.wyszukajPoImieniu();
+                ksiazkaAdresowa.wyszukajPoImieniu(idZalogowanegoUzytkownika);
                 break;
             case '3':
-                ksiazkaAdresowa.wyszukajPoNazwisku();
+                ksiazkaAdresowa.wyszukajPoNazwisku(idZalogowanegoUzytkownika);
                 break;
             case '4':
-                ksiazkaAdresowa.wyswietlWszystkichAdresatow();
+                ksiazkaAdresowa.wyswietlWszystkichAdresatow(idZalogowanegoUzytkownika);
                 break;
             case '5':
-                ksiazkaAdresowa.usunAdresata();
+                ksiazkaAdresowa.usunAdresata(idZalogowanegoUzytkownika);
                 break;
             case '6':
-                ksiazkaAdresowa.wyszukajAdresataDoEdycji();
+                ksiazkaAdresowa.wyszukajAdresataDoEdycji(idZalogowanegoUzytkownika);
                 break;
             case '7':
                 ksiazkaAdresowa.zmianaHaslaUzytkownika();
