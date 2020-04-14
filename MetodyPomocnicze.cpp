@@ -85,8 +85,6 @@ char MetodyPomocnicze::wybierzDanaDoEdycji()
 {
     char wybor;
 
-    cout << "Wybierz z Menu dana, ktora chcesz edytowac: " << endl << endl;
-
     system("cls");
     cout << "--------------Edycja Adresata----------------" << endl;
     cout << "1. Imie." << endl;

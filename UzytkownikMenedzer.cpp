@@ -40,7 +40,7 @@ Uzytkownik UzytkownikMenedzer::rejestracjaUzytkownika()
         plik.close();
 
         cout << endl << "Uzytkownik zostal dodany." << endl;
-        //cout << "Wielkosc wektora uzytkownicy: " << uzytkownicy.size() << endl << endl;
+        cout << "Wielkosc wektora uzytkownicy: " << uzytkownicy.size() << endl << endl;
     }
 
     else
@@ -123,29 +123,6 @@ void UzytkownikMenedzer::wyswietlDaneUzytkownika(Uzytkownik uzytkownik)
     cout << "Id Uzytkownika:       " << uzytkownik.pobierzIdUzytkownika() << endl;
     cout << "Nazwa uzytkownika:    " << uzytkownik.pobierzNazweUzytkownika() << endl;
     cout << "Haslo Uzytkownia:     " << uzytkownik.pobierzHasloUzytkownika() << endl;
-}
-
-void UzytkownikMenedzer::wyswietlWszystkichUzytkownikow()
-{
-    system("cls");
-
-    if (!uzytkownicy.empty())
-    {
-        cout << "             >>> UZYTKOWNICY <<<" << endl;
-        cout << "-----------------------------------------------" << endl;
-        for (vector <Uzytkownik> :: iterator itr = uzytkownicy.begin(); itr != uzytkownicy.end(); itr++)
-        {
-            wyswietlDaneUzytkownika(*itr);
-            cout << endl;
-        }
-        cout << endl;
-    }
-
-    else
-    {
-        cout << endl << "Ksiazka uzytkownikow jest pusta." << endl << endl;
-    }
-    system("pause");
 }
 
 string UzytkownikMenedzer::edytujUzytkownika(Uzytkownik uzytkownik, string linia, string noweHaslo)
