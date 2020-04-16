@@ -12,6 +12,7 @@ class AdresatMenedzer
     Adresat adresat;
     PlikiZAdresatami plikiZAdresatami;
 
+    const string NAZWA_PLIKU_Z_ADRESATAMI;
     vector <Adresat> adresaci;
     vector <string> linieAdresatow;
     string podaneImie;
@@ -23,7 +24,9 @@ class AdresatMenedzer
     string edytujAdresata(Adresat adresat, string trescDoEdycji, string zmianaDanych, char wybor);
 
 public:
-    AdresatMenedzer()
+    AdresatMenedzer(string nazwaPlikuZAdresatami)
+        : plikiZAdresatami(nazwaPlikuZAdresatami),
+          NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami)
     {
         adresaci=plikiZAdresatami.wczytajAdresatowZPliku();
         linieAdresatow=plikiZAdresatami.wczytajLinieZPlikuDoWektora();

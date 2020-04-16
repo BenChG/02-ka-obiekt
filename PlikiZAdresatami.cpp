@@ -6,15 +6,19 @@ vector <Adresat> PlikiZAdresatami::wczytajAdresatowZPliku()
     Adresat adresat;
     adresaci.clear();
 
-    string imie, nazwisko, numerTelefonu, email, adres;
+    string imie;
+    string nazwisko;
+    string numerTelefonu;
+    string email;
+    string adres;
+    string nowyWyraz;
+    string linia;
     int idAdresata;
     int idUzytkownika;
     int ostatniZnak[7];
-    string nowyWyraz;
-    string linia;
 
     fstream plik;
-    plik.open("KsiazkaAdresowa.txt",ios::in);
+    plik.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(),ios::in);
 
     if (plik.good() == true)
     {
@@ -80,7 +84,7 @@ vector <string> PlikiZAdresatami::wczytajLinieZPlikuDoWektora ()
     linieAdresatow.clear();
 
     fstream plik;
-    plik.open("KsiazkaAdresowa.txt",ios::in);
+    plik.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(),ios::in);
 
     if (plik.good()==true)
     {

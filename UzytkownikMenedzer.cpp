@@ -5,13 +5,9 @@ Uzytkownik UzytkownikMenedzer::rejestracjaUzytkownika()
     Uzytkownik uzytkownik;
     MetodyPomocnicze metodyPomocnicze;
 
-    string nazwaUzytkownika, hasloUzytkownika;
-    int idUzytkownika=0;
-
-    if (uzytkownicy.size()>=1)
-    {
-        idUzytkownika=uzytkownicy.size()+1;
-    }
+    string nazwaUzytkownika;
+    string hasloUzytkownika;
+    int idUzytkownika=uzytkownicy.size()+1;
 
     cout << "Podaj nazwe uzytkownika: ";
     nazwaUzytkownika = metodyPomocnicze.wczytajLinie();
@@ -26,7 +22,7 @@ Uzytkownik UzytkownikMenedzer::rejestracjaUzytkownika()
     uzytkownicy.push_back(uzytkownik);
 
     fstream plik;
-    plik.open("Uzytkownicy.txt",ios::out | ios::app);
+    plik.open(NAZWA_PLIKU_Z_UZYTKOWNIKAMI.c_str(), ios::out | ios::app);
 
     if (plik.good() == true)
     {
@@ -56,8 +52,9 @@ Uzytkownik UzytkownikMenedzer::rejestracjaUzytkownika()
 
 int UzytkownikMenedzer::logowanieUzytkownika(Uzytkownik uzytkownik, string nazwa)
 {
-    string haslo, czyHasloJestPoprawne="NIE";
-    int idZnalezionegoUzytkownia=0;
+    string haslo;
+    string czyHasloJestPoprawne="NIE";
+    int idZalogowanegoUzytkownika=0;
 
     if (uzytkownik.pobierzNazweUzytkownika() == nazwa)
     {
@@ -69,10 +66,9 @@ int UzytkownikMenedzer::logowanieUzytkownika(Uzytkownik uzytkownik, string nazwa
             {
                 cout << "Zalogowales sie" << endl;
                 system ("pause");
+
                 czyHasloJestPoprawne = "TAK";
-
                 idZalogowanegoUzytkownika=uzytkownik.pobierzIdUzytkownika();
-
                 proby=2;
             }
         }
@@ -106,7 +102,6 @@ int UzytkownikMenedzer::wyszukajUzytkownika()
             {
                 return idZalogowanegoUzytkownika;
             }
-
         }
 
         if (idZalogowanegoUzytkownika==0)
@@ -115,6 +110,11 @@ int UzytkownikMenedzer::wyszukajUzytkownika()
             system ("pause");
             return idZalogowanegoUzytkownika;
         }
+    }
+    else
+    {
+        cout << "Ksiazka z uzytkownikami jest pusta, wybierz 1 aby dodac pierwszego uzytkownika." << endl;
+        system ("pause");
     }
 }
 
@@ -127,15 +127,16 @@ void UzytkownikMenedzer::wyswietlDaneUzytkownika(Uzytkownik uzytkownik)
 
 string UzytkownikMenedzer::edytujUzytkownika(Uzytkownik uzytkownik, string linia, string noweHaslo)
 {
-    int dlugoscLinii=linia.length();
-    int ostatniZnak[3];
-    int k=0;
-    int pierwszyZnak=0;
 
     string idUzytkownika;
     string nazwaUzytkownika;
     string hasloUzytkownika;
     string nowyWyraz;
+
+    int dlugoscLinii=linia.length();
+    int ostatniZnak[3];
+    int k=0;
+    int pierwszyZnak=0;
 
     for (int znak=0; znak<dlugoscLinii; znak++)
     {
@@ -174,7 +175,7 @@ void UzytkownikMenedzer::zmianaHaslaUzytkownika()
     cin >> noweHaslo;
 
     fstream plik;
-    plik.open("Uzytkownicy.txt", ios::out);
+    plik.open(NAZWA_PLIKU_Z_UZYTKOWNIKAMI.c_str(), ios::out);
 
     if (plik.good() == true)
     {
@@ -196,6 +197,10 @@ void UzytkownikMenedzer::zmianaHaslaUzytkownika()
 
         uzytkownicy=plikiZUzytkownikami.wczytajUzytkownikowZPliku();
         linieUzytkownikow=plikiZUzytkownikami.wczytajLinieZPlikuDoWektora();
+    }
+    else
+    {
+        cout << "Nie udalo sie otworzyc pliku i zapisac do niego danych." << endl << endl;
     }
 }
 

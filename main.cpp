@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-    KsiazkaAdresowa ksiazkaAdresowa;
+    KsiazkaAdresowa ksiazkaAdresowa ("Uzytkownicy2.txt","KsiazkaAdresowa2.txt");
 
     int idZalogowanegoUzytkownika=0;
     char wybor;
@@ -78,4 +78,3 @@ int main()
 
     return 0;
 }
-

@@ -12,6 +12,7 @@ class UzytkownikMenedzer
     Uzytkownik uzytkownik;
     PlikiZUzytkownikami plikiZUzytkownikami;
 
+    const string NAZWA_PLIKU_Z_UZYTKOWNIKAMI;
     vector <Uzytkownik> uzytkownicy;
     vector <string> linieUzytkownikow;
     int idZalogowanegoUzytkownika;
@@ -22,7 +23,9 @@ class UzytkownikMenedzer
 
 public:
 
-    UzytkownikMenedzer()
+    UzytkownikMenedzer(string nazwaPlikuZUzytkownikami)
+        : plikiZUzytkownikami(nazwaPlikuZUzytkownikami),
+          NAZWA_PLIKU_Z_UZYTKOWNIKAMI (nazwaPlikuZUzytkownikami)
     {
         uzytkownicy=plikiZUzytkownikami.wczytajUzytkownikowZPliku();
         linieUzytkownikow=plikiZUzytkownikami.wczytajLinieZPlikuDoWektora();

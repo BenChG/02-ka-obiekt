@@ -6,14 +6,16 @@ vector <Uzytkownik> PlikiZUzytkownikami::wczytajUzytkownikowZPliku()
     Uzytkownik uzytkownik;
     uzytkownicy.clear();
 
-    string nazwaUzytkownika, hasloUzytkownika;
-    int idUzytkownika;
-    int ostatniZnak[3];
+    string nazwaUzytkownika;
+    string hasloUzytkownika;
     string nowyWyraz;
     string linia;
+    int idUzytkownika;
+    int ostatniZnak[3];
+
 
     fstream plik;
-    plik.open("Uzytkownicy.txt",ios::in);
+    plik.open(NAZWA_PLIKU_Z_UZYTKOWNIKAMI.c_str(),ios::in);
 
     if (plik.good() == true)
     {
@@ -59,7 +61,7 @@ vector <string> PlikiZUzytkownikami::wczytajLinieZPlikuDoWektora ()
     linieUzytkownikow.clear();
 
     fstream plik;
-    plik.open("Uzytkownicy.txt",ios::in);
+    plik.open(NAZWA_PLIKU_Z_UZYTKOWNIKAMI.c_str(),ios::in);
 
     if (plik.good()==true)
     {
@@ -72,5 +74,3 @@ vector <string> PlikiZUzytkownikami::wczytajLinieZPlikuDoWektora ()
 
     return linieUzytkownikow;
 }
-
-

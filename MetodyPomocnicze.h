@@ -13,10 +13,11 @@ class MetodyPomocnicze
 public:
     char wybierzOpcjeZMenuLogowania();
     char wybierzOpcjeZMenuGlownego();
+    char wybierzDanaDoEdycji();
     string wczytajLinie();
     string podajImie();
     string podajNazwisko();
-    char wybierzDanaDoEdycji();
+
 };
 
 #endif

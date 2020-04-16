@@ -5,8 +5,13 @@ Adresat AdresatMenedzer::dodajAdresata(int idZalogowanegoUzytkownika)
     Adresat adresat;
     MetodyPomocnicze metodyPomocnicze;
 
-    string imie, nazwisko, numerTelefonu, email, adres;
-    int idAdresata=1, idUzytkownika=idZalogowanegoUzytkownika;
+    string imie;
+    string nazwisko;
+    string numerTelefonu;
+    string email;
+    string adres;
+    int idAdresata=1;
+    int idUzytkownika=idZalogowanegoUzytkownika;
 
     cout << "Podaj imie: ";
     imie = metodyPomocnicze.wczytajLinie();
@@ -40,7 +45,7 @@ Adresat AdresatMenedzer::dodajAdresata(int idZalogowanegoUzytkownika)
     adresaci.push_back(adresat);
 
     fstream plik;
-    plik.open("KsiazkaAdresowa.txt",ios::out | ios::app);
+    plik.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(),ios::out | ios::app);
 
     if (plik.good() == true)
     {
@@ -69,7 +74,6 @@ Adresat AdresatMenedzer::dodajAdresata(int idZalogowanegoUzytkownika)
     {
         cout << "Nie udalo sie otworzyc pliku i zapisac do niego danych." << endl << endl;
     }
-
     system("pause");
 
     linieAdresatow=plikiZAdresatami.wczytajLinieZPlikuDoWektora();
@@ -82,8 +86,8 @@ void AdresatMenedzer::wyszukajPoImieniu(int idZalogowanegoUzytkownika)
 {
     Adresat adresat;
     MetodyPomocnicze metodyPomocnicze;
-    string czyZnalezionoImie="NIE";
 
+    string czyZnalezionoImie="NIE";
     string podaneImie = metodyPomocnicze.podajImie();
 
     for (vector <Adresat> :: iterator itr = adresaci.begin(); itr != adresaci.end(); itr++)
@@ -126,8 +130,8 @@ void AdresatMenedzer::wyszukajPoNazwisku(int idZalogowanegoUzytkownika)
 {
     Adresat adresat;
     MetodyPomocnicze metodyPomocnicze;
-    string czyZnalezionoNazwisko = "NIE";
 
+    string czyZnalezionoNazwisko = "NIE";
     string podaneNazwisko = metodyPomocnicze.podajNazwisko();
 
     for (vector <Adresat> :: iterator itr = adresaci.begin(); itr != adresaci.end(); itr++)
@@ -179,7 +183,6 @@ void AdresatMenedzer::wyswietlDaneAdresata(Adresat adresat, int idZalogowanegoUz
         cout << "Email:              " << adresat.pobierzEmail() << endl;
         cout << "Adres:              " << adresat.pobierzAdres() << endl << endl;
     }
-
 }
 
 void AdresatMenedzer::wyswietlWszystkichAdresatow(int idZalogowanegoUzytkownika)
@@ -224,7 +227,7 @@ void AdresatMenedzer::usunAdresata(int idZalogowanegoUzytkownika)
     if (czyPotwierdzono=='t')
     {
         fstream plik;
-        plik.open("KsiazkaAdresowa.txt",ios::out);
+        plik.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(),ios::out);
 
         if (plik.good() == true)
         {
@@ -285,7 +288,6 @@ void AdresatMenedzer::usunAdresata(int idZalogowanegoUzytkownika)
 
     }
 
-
     adresaci=plikiZAdresatami.wczytajAdresatowZPliku();
     linieAdresatow=plikiZAdresatami.wczytajLinieZPlikuDoWektora();
 
@@ -293,19 +295,11 @@ void AdresatMenedzer::usunAdresata(int idZalogowanegoUzytkownika)
     {
         cout << "Z powodu braku potwierdzenia adresat nie zostal usuniety." << endl << endl;
     }
-
     system("pause");
 }
 
-
-
 string AdresatMenedzer::edytujAdresata(Adresat adresat, string linia, string zmianaDanych, char wybor)
 {
-    int dlugoscLinii=linia.length()-1;
-    int ostatniZnak[7];
-    int k=0;
-    int pierwszyZnak=0;
-
     string idAdresata;
     string idUzytkownika;
     string imie;
@@ -313,8 +307,12 @@ string AdresatMenedzer::edytujAdresata(Adresat adresat, string linia, string zmi
     string numerTelefonu;
     string email;
     string adres;
-
     string nowyWyraz;
+
+    int dlugoscLinii=linia.length()-1;
+    int ostatniZnak[7];
+    int k=0;
+    int pierwszyZnak=0;
 
     for (int znak=0; znak<=dlugoscLinii; znak++)
     {
@@ -385,16 +383,16 @@ void AdresatMenedzer::wyszukajAdresataDoEdycji(int idZalogowanegoUzytkownika)
 
     if (!adresaci.empty())
     {
-        int ileAdresatow=linieAdresatow.size()-1;
-        int adresatDoEdycji;
-        int idAdresata;
-        char wybor;
         string zmianaDanych="";
         string czyZnalezionoAdresata="NIE";
-        int idUzytkownika;
         string nazwaUzytkownika;
         string hasloUzytkownika;
         string nowyWyraz;
+        char wybor;
+        int ileAdresatow=linieAdresatow.size()-1;
+        int adresatDoEdycji;
+        int idAdresata;
+        int idUzytkownika;
         int verticalLine;
         int i=0;
 
@@ -402,7 +400,7 @@ void AdresatMenedzer::wyszukajAdresataDoEdycji(int idZalogowanegoUzytkownika)
         cin >> adresatDoEdycji;
 
         fstream plik;
-        plik.open("KsiazkaAdresowa.txt", ios::out);
+        plik.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(), ios::out);
 
         if (plik.good() == true)
         {

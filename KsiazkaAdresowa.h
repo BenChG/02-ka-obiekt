@@ -12,6 +12,11 @@ class KsiazkaAdresowa
     MetodyPomocnicze metodyPomocnicze;
 
 public:
+    KsiazkaAdresowa(string nazwaPlikuZUzytkownikami, string nazwaPlikuZAdresatami) :
+        uzytkownikMenedzer(nazwaPlikuZUzytkownikami),
+        adresatMenedzer (nazwaPlikuZAdresatami)
+    {};
+
     char wybierzOpcjeZMenuLogowania();
     void rejestracjaUzytkownika();
     int wyszukajUzytkownika();
