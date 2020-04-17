@@ -431,7 +431,7 @@ void AdresatMenedzer::wyszukajAdresataDoEdycji(int idZalogowanegoUzytkownika)
 
                     string trescDoEdycji=linieAdresatow[itr];
 
-                    plik << edytujAdresata(adresat, trescDoEdycji, zmianaDanych, wybor);
+                    plik << edytujAdresata(adresat, trescDoEdycji, zmianaDanych, wybor) << endl;
                     czyZnalezionoAdresata="TAK";
                 }
 

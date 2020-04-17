@@ -21,7 +21,7 @@ int main()
                 ksiazkaAdresowa.rejestracjaUzytkownika();
                 break;
             case '2':
-                idZalogowanegoUzytkownika=ksiazkaAdresowa.wyszukajUzytkownika();
+               idZalogowanegoUzytkownika=ksiazkaAdresowa.wyszukajUzytkownika();
                 break;
             case '9':
                 exit(0);

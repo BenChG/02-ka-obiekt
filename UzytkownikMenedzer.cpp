@@ -54,7 +54,6 @@ int UzytkownikMenedzer::logowanieUzytkownika(Uzytkownik uzytkownik, string nazwa
 {
     string haslo;
     string czyHasloJestPoprawne="NIE";
-    int idZalogowanegoUzytkownika=0;
 
     if (uzytkownik.pobierzNazweUzytkownika() == nazwa)
     {
@@ -89,15 +88,13 @@ int UzytkownikMenedzer::wyszukajUzytkownika()
     if (!uzytkownicy.empty())
     {
         string nazwa;
-        int idZalogowanegoUzytkownika=0;
-
         cout << "Podaj nazwe: ";
         cin >> nazwa;
-
 
         for (vector <Uzytkownik> :: iterator itr = uzytkownicy.begin(); itr != uzytkownicy.end(); itr++)
         {
             idZalogowanegoUzytkownika=logowanieUzytkownika(*itr, nazwa);
+
             if (idZalogowanegoUzytkownika!=0)
             {
                 return idZalogowanegoUzytkownika;
@@ -127,7 +124,6 @@ void UzytkownikMenedzer::wyswietlDaneUzytkownika(Uzytkownik uzytkownik)
 
 string UzytkownikMenedzer::edytujUzytkownika(Uzytkownik uzytkownik, string linia, string noweHaslo)
 {
-
     string idUzytkownika;
     string nazwaUzytkownika;
     string hasloUzytkownika;
@@ -169,7 +165,6 @@ void UzytkownikMenedzer::zmianaHaslaUzytkownika()
 
     int ileUzytkownikow=linieUzytkownikow.size()-1;
 
-    cout << "idZalogowanegoUzytkownika" << idZalogowanegoUzytkownika << endl;
     string noweHaslo;
     cout << "Podaj nowe haslo uzytkownika: " << endl;
     cin >> noweHaslo;
