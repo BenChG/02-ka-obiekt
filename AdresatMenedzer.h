@@ -4,7 +4,6 @@
 #include "Adresat.h"
 #include "PlikiZAdresatami.h"
 #include "MetodyPomocnicze.h"
-
 using namespace std;
 
 class AdresatMenedzer

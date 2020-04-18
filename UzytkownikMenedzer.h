@@ -22,7 +22,6 @@ class UzytkownikMenedzer
     string edytujUzytkownika(Uzytkownik uzytkownik, string linia, string noweHaslo);
 
 public:
-
     UzytkownikMenedzer(string nazwaPlikuZUzytkownikami)
         : plikiZUzytkownikami(nazwaPlikuZUzytkownikami),
           NAZWA_PLIKU_Z_UZYTKOWNIKAMI (nazwaPlikuZUzytkownikami)

@@ -17,7 +17,6 @@ public:
     string wczytajLinie();
     string podajImie();
     string podajNazwisko();
-
 };
 
 #endif

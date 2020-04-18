@@ -17,6 +17,7 @@ public:
         adresatMenedzer (nazwaPlikuZAdresatami)
     {};
 
+ int pobierzIdZalogowanegoUzytkownika();
     char wybierzOpcjeZMenuLogowania();
     void rejestracjaUzytkownika();
     int wyszukajUzytkownika();
@@ -29,7 +30,6 @@ public:
     void wyszukajAdresataDoEdycji(int idZalogowanegoUzytkownika);
     void wylogujUzytkownika();
     void zmianaHaslaUzytkownika();
-    int pobierzIdZalogowanegoUzytkownika();
 };
 
 #endif

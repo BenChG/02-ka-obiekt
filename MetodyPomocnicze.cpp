@@ -92,7 +92,7 @@ char MetodyPomocnicze::wybierzDanaDoEdycji()
     cout << "3. Numer telefonu." << endl;
     cout << "4. E-mail." << endl;
     cout << "5. Adres." << endl;
-    cout << "6. Powrot do menu." << endl;
+    cout << "6. Powrot do Menu Glownego." << endl;
     cout <<"-----------------------------------------"<< endl;
     cout << "Twoj wybor: ";
 
