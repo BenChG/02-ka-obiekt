@@ -21,30 +21,7 @@ Uzytkownik UzytkownikMenedzer::rejestracjaUzytkownika()
 
     uzytkownicy.push_back(uzytkownik);
 
-    fstream plik;
-    plik.open(NAZWA_PLIKU_Z_UZYTKOWNIKAMI.c_str(), ios::out | ios::app);
-
-    if (plik.good() == true)
-    {
-        plik << uzytkownik.pobierzIdUzytkownika();
-        plik << "|";
-        plik << uzytkownik.pobierzNazweUzytkownika();
-        plik << "|";
-        plik << uzytkownik.pobierzHasloUzytkownika();
-        plik << "|";
-        plik << endl;
-        plik.close();
-
-        cout << endl << "Uzytkownik zostal dodany." << endl;
-        cout << "Wielkosc wektora uzytkownicy: " << uzytkownicy.size() << endl << endl;
-    }
-
-    else
-    {
-        cout << "Nie udalo sie otworzyc pliku i zapisac do niego danych." << endl << endl;
-    }
-
-    system("pause");
+    plikiZUzytkownikami.dodajNowegoUzytkownikaDoPlikuZUzytkownikami(idUzytkownika, nazwaUzytkownika, hasloUzytkownika);
 
     linieUzytkownikow=plikiZUzytkownikami.wczytajLinieZPlikuDoWektora();
     return uzytkownik;

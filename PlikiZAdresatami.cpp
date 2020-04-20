@@ -17,7 +17,6 @@ vector <Adresat> PlikiZAdresatami::wczytajAdresatowZPliku()
     int idUzytkownika;
     int ostatniZnak[7];
 
-    fstream plik;
     plik.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(),ios::in);
 
     if (plik.good() == true)
@@ -83,7 +82,6 @@ vector <string> PlikiZAdresatami::wczytajLinieZPlikuDoWektora ()
     string linia;
     linieAdresatow.clear();
 
-    fstream plik;
     plik.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(),ios::in);
 
     if (plik.good()==true)
@@ -96,4 +94,37 @@ vector <string> PlikiZAdresatami::wczytajLinieZPlikuDoWektora ()
     }
 
     return linieAdresatow;
+}
+
+void PlikiZAdresatami::dodajNowegoAdresataDoPlikuZAdresatami (int idA, int idU, string imie, string nazwisko, string tel, string email, string adres)
+{
+    plik.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(),ios::out | ios::app);
+
+    if (plik.good() == true)
+    {
+        plik << idA;
+        plik << "|";
+        plik << idU;
+        plik << "|";
+        plik << imie;
+        plik << "|";
+        plik << nazwisko;
+        plik << "|";
+        plik << tel;
+        plik << "|";
+        plik << email;
+        plik << "|";
+        plik << adres;
+        plik << "|";
+        plik << endl;
+        plik.close();
+
+        cout << endl << "Adresat zostal dodany." << endl;
+    }
+
+    else
+    {
+        cout << "Nie udalo sie otworzyc pliku i zapisac do niego danych." << endl << endl;
+    }
+    system("pause");
 }

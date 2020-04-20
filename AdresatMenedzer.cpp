@@ -44,37 +44,9 @@ Adresat AdresatMenedzer::dodajAdresata(int idZalogowanegoUzytkownika)
 
     adresaci.push_back(adresat);
 
-    fstream plik;
-    plik.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(),ios::out | ios::app);
+    plikiZAdresatami.dodajNowegoAdresataDoPlikuZAdresatami (idAdresata, idUzytkownika, imie, nazwisko, numerTelefonu, email, adres);
 
-    if (plik.good() == true)
-    {
-        plik << adresat.pobierzIdAdresata();
-        plik << "|";
-        plik << adresat.pobierzIdUzytkownika();
-        plik << "|";
-        plik << adresat.pobierzImie();
-        plik << "|";
-        plik << adresat.pobierzNazwisko();
-        plik << "|";
-        plik << adresat.pobierzNumerTelefonu();
-        plik << "|";
-        plik << adresat.pobierzEmail();
-        plik << "|";
-        plik << adresat.pobierzAdres();
-        plik << "|";
-        plik << endl;
-        plik.close();
-
-        cout << endl << "Adresat zostal dodany." << endl;
-        cout << "Wielkosc wektora adresaci: " << adresaci.size() << endl << endl;
-    }
-
-    else
-    {
-        cout << "Nie udalo sie otworzyc pliku i zapisac do niego danych." << endl << endl;
-    }
-    system("pause");
+    cout << "Wielkosc wektora adresaci: " << adresaci.size() << endl << endl;
 
     linieAdresatow=plikiZAdresatami.wczytajLinieZPlikuDoWektora();
     adresaci=plikiZAdresatami.wczytajAdresatowZPliku();

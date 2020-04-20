@@ -15,6 +15,7 @@ class PlikiZUzytkownikami
     vector <Uzytkownik> uzytkownicy;
     vector <string> linieuzytkownikow;
     Uzytkownik uzytkownik;
+    fstream plik;
 
 public:
 
@@ -23,6 +24,7 @@ public:
 
     vector <Uzytkownik> wczytajUzytkownikowZPliku();
     vector <string> wczytajLinieZPlikuDoWektora();
+    void dodajNowegoUzytkownikaDoPlikuZUzytkownikami(int id, string nazwa, string haslo);
 };
 
 #endif

@@ -13,8 +13,6 @@ vector <Uzytkownik> PlikiZUzytkownikami::wczytajUzytkownikowZPliku()
     int idUzytkownika;
     int ostatniZnak[3];
 
-
-    fstream plik;
     plik.open(NAZWA_PLIKU_Z_UZYTKOWNIKAMI.c_str(),ios::in);
 
     if (plik.good() == true)
@@ -60,7 +58,6 @@ vector <string> PlikiZUzytkownikami::wczytajLinieZPlikuDoWektora ()
     string linia;
     linieUzytkownikow.clear();
 
-    fstream plik;
     plik.open(NAZWA_PLIKU_Z_UZYTKOWNIKAMI.c_str(),ios::in);
 
     if (plik.good()==true)
@@ -73,4 +70,31 @@ vector <string> PlikiZUzytkownikami::wczytajLinieZPlikuDoWektora ()
     }
 
     return linieUzytkownikow;
+}
+
+void PlikiZUzytkownikami::dodajNowegoUzytkownikaDoPlikuZUzytkownikami (int id, string nazwa, string haslo)
+{
+    plik.open(NAZWA_PLIKU_Z_UZYTKOWNIKAMI.c_str(), ios::out | ios::app);
+
+    if (plik.good() == true)
+    {
+        plik << id;
+        plik << "|";
+        plik << nazwa;
+        plik << "|";
+        plik << haslo;
+        plik << "|";
+        plik << endl;
+        plik.close();
+
+        cout << endl << "Uzytkownik zostal dodany." << endl;
+        cout << "Wielkosc wektora uzytkownicy: " << id << endl << endl;
+    }
+
+    else
+    {
+        cout << "Nie udalo sie otworzyc pliku i zapisac do niego danych." << endl << endl;
+    }
+
+    system("pause");
 }

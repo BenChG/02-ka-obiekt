@@ -14,6 +14,7 @@ class PlikiZAdresatami
     vector <Adresat> adresaci;
     vector <string> linieAdresatow;
     Adresat adresat;
+    fstream plik;
 
 public:
 
@@ -24,6 +25,7 @@ public:
 
     vector <Adresat> wczytajAdresatowZPliku();
     vector <string> wczytajLinieZPlikuDoWektora();
+    void dodajNowegoAdresataDoPlikuZAdresatami (int idA, int idU, string imie, string nazwisko, string tel, string email, string adres);
 };
 
 #endif
