@@ -8,26 +8,35 @@ using namespace std;
 class KsiazkaAdresowa
 {
     UzytkownikMenedzer uzytkownikMenedzer;
-    AdresatMenedzer adresatMenedzer;
+    AdresatMenedzer *adresatMenedzer;
     MetodyPomocnicze metodyPomocnicze;
+    const string NAZWA_PLIKU_Z_ADRESATAMI;
 
 public:
     KsiazkaAdresowa(string nazwaPlikuZUzytkownikami, string nazwaPlikuZAdresatami) :
         uzytkownikMenedzer(nazwaPlikuZUzytkownikami),
-        adresatMenedzer (nazwaPlikuZAdresatami)
-    {};
+        NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami)
+    {
+    adresatMenedzer = NULL;
+    };
+
+    ~KsiazkaAdresowa()
+    {
+     delete adresatMenedzer;
+     adresatMenedzer = NULL;
+    };
 
  int pobierzIdZalogowanegoUzytkownika();
     char wybierzOpcjeZMenuLogowania();
     void rejestracjaUzytkownika();
     int wyszukajUzytkownika();
     char wybierzOpcjeZMenuGlownego();
-    void dodajAdresata(int idZalogowanegoUzytkownika);
-    void wyszukajPoImieniu(int idZalogowanegoUzytkownika);
-    void wyszukajPoNazwisku(int idZalogowanegoUzytkownika);
-    void wyswietlWszystkichAdresatow(int idZalogowanegoUzytkownika);
-    void usunAdresata(int idZalogowanegoUzytkownika);
-    void wyszukajAdresataDoEdycji(int idZalogowanegoUzytkownika);
+    void dodajAdresata();
+    void wyszukajPoImieniu();
+    void wyszukajPoNazwisku();
+    void wyswietlWszystkichAdresatow();
+    void usunAdresata();
+    void wyszukajAdresataDoEdycji();
     void wylogujUzytkownika();
     void zmianaHaslaUzytkownika();
 };
