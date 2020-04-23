@@ -92,13 +92,6 @@ int UzytkownikMenedzer::wyszukajUzytkownika()
     }
 }
 
-void UzytkownikMenedzer::wyswietlDaneUzytkownika(Uzytkownik uzytkownik)
-{
-    cout << "Id Uzytkownika:       " << uzytkownik.pobierzIdUzytkownika() << endl;
-    cout << "Nazwa uzytkownika:    " << uzytkownik.pobierzNazweUzytkownika() << endl;
-    cout << "Haslo Uzytkownia:     " << uzytkownik.pobierzHasloUzytkownika() << endl;
-}
-
 string UzytkownikMenedzer::edytujUzytkownika(Uzytkownik uzytkownik, string linia, string noweHaslo)
 {
     string idUzytkownika;
@@ -184,4 +177,12 @@ void UzytkownikMenedzer::wylogujUzytkownika()
 int UzytkownikMenedzer::pobierzIdZalogowanegoUzytkownika()
 {
     return idZalogowanegoUzytkownika;
+}
+
+bool UzytkownikMenedzer::czyUzytkownikJestZalogowany()
+{
+    if (idZalogowanegoUzytkownika>0)
+        return true;
+    else
+        return false;
 }

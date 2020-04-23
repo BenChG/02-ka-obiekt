@@ -8,6 +8,10 @@ char KsiazkaAdresowa::wybierzOpcjeZMenuLogowania()
 int KsiazkaAdresowa::wyszukajUzytkownika()
 {
     uzytkownikMenedzer.wyszukajUzytkownika();
+    if (uzytkownikMenedzer.czyUzytkownikJestZalogowany())
+    {
+        adresatMenedzer = new AdresatMenedzer (NAZWA_PLIKU_Z_ADRESATAMI, uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika());
+    }
 }
 
 void KsiazkaAdresowa::rejestracjaUzytkownika()
@@ -20,39 +24,41 @@ char KsiazkaAdresowa::wybierzOpcjeZMenuGlownego()
     metodyPomocnicze.wybierzOpcjeZMenuGlownego();
 }
 
-void KsiazkaAdresowa::dodajAdresata(int idZalogowanegoUzytkownika)
+void KsiazkaAdresowa::dodajAdresata()
 {
-    adresatMenedzer.dodajAdresata(idZalogowanegoUzytkownika);
+    adresatMenedzer->dodajAdresata();
 }
 
-void KsiazkaAdresowa::wyszukajPoImieniu(int idZalogowanegoUzytkownika)
+void KsiazkaAdresowa::wyszukajPoImieniu()
 {
-    adresatMenedzer.wyszukajPoImieniu(idZalogowanegoUzytkownika);
+    adresatMenedzer->wyszukajPoImieniu();
 }
 
-void KsiazkaAdresowa::wyszukajPoNazwisku(int idZalogowanegoUzytkownika)
+void KsiazkaAdresowa::wyszukajPoNazwisku()
 {
-    adresatMenedzer.wyszukajPoNazwisku(idZalogowanegoUzytkownika);
+    adresatMenedzer->wyszukajPoNazwisku();
 }
 
-void KsiazkaAdresowa::wyswietlWszystkichAdresatow(int idZalogowanegoUzytkownika)
+void KsiazkaAdresowa::wyswietlWszystkichAdresatow()
 {
-    adresatMenedzer.wyswietlWszystkichAdresatow(idZalogowanegoUzytkownika);
+    adresatMenedzer->wyswietlWszystkichAdresatow();
 }
 
-void KsiazkaAdresowa::usunAdresata(int idZalogowanegoUzytkownika)
+void KsiazkaAdresowa::usunAdresata()
 {
-    adresatMenedzer.usunAdresata(idZalogowanegoUzytkownika);
+    adresatMenedzer->usunAdresata();
 }
 
-void KsiazkaAdresowa::wyszukajAdresataDoEdycji(int idZalogowanegoUzytkownika)
+void KsiazkaAdresowa::wyszukajAdresataDoEdycji()
 {
-    adresatMenedzer.wyszukajAdresataDoEdycji(idZalogowanegoUzytkownika);
+    adresatMenedzer->wyszukajAdresataDoEdycji();
 }
 
 void KsiazkaAdresowa::wylogujUzytkownika()
 {
     uzytkownikMenedzer.wylogujUzytkownika();
+    delete adresatMenedzer;
+    adresatMenedzer = NULL;
 }
 
 void KsiazkaAdresowa::zmianaHaslaUzytkownika()

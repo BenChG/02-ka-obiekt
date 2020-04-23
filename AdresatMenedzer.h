@@ -4,6 +4,7 @@
 #include "Adresat.h"
 #include "PlikiZAdresatami.h"
 #include "MetodyPomocnicze.h"
+#include <iostream>
 using namespace std;
 
 class AdresatMenedzer
@@ -11,32 +12,31 @@ class AdresatMenedzer
     Adresat adresat;
     PlikiZAdresatami plikiZAdresatami;
 
-    const string NAZWA_PLIKU_Z_ADRESATAMI;
+    const int ID_ZALOGOWANEGO_UZYTKOWNIKA;
     vector <Adresat> adresaci;
     vector <string> linieAdresatow;
     string podaneImie;
     string podaneNazwisko;
 
-    void wyswietlDaneAdresata(Adresat adresat, int idZalogowanegoUzytkownika);
-    string wyswietlaniePoImieniu(Adresat adresat, string podaneImie, int idZalogowanegoUzytkowika);
-    string wyswietlaniePoNazwisku(Adresat adresat, string podaneNazwisko, int idZalogowanegoUzytkownika);
-    string edytujAdresata(Adresat adresat, string trescDoEdycji, string zmianaDanych, char wybor);
+    void wyswietlDaneAdresata(Adresat adresat);
+    string wyswietlaniePoImieniu(Adresat adresat, string podaneImie);
+    string wyswietlaniePoNazwisku(Adresat adresat, string podaneNazwisko);
 
 public:
-    AdresatMenedzer(string nazwaPlikuZAdresatami)
+    AdresatMenedzer(string nazwaPlikuZAdresatami, int idZalogowanegoUzytkownika)
         : plikiZAdresatami(nazwaPlikuZAdresatami),
-          NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami)
+          ID_ZALOGOWANEGO_UZYTKOWNIKA (idZalogowanegoUzytkownika)
     {
         adresaci=plikiZAdresatami.wczytajAdresatowZPliku();
         linieAdresatow=plikiZAdresatami.wczytajLinieZPlikuDoWektora();
     };
 
-    Adresat dodajAdresata(int idZalogowanegoUzytkownika);
-    void wyszukajPoImieniu(int idZalogowanegoUzytkownika);
-    void wyszukajPoNazwisku(int idZalogowanegoUzytkownika);
-    void wyswietlWszystkichAdresatow(int idZalogowanegoUzytkownika);
-    void usunAdresata(int idZalogowanegoUzytkownika);
-    void wyszukajAdresataDoEdycji(int idZalogowanegoUzytkownika);
+    Adresat dodajAdresata();
+    void wyszukajPoImieniu();
+    void wyszukajPoNazwisku();
+    void wyswietlWszystkichAdresatow();
+    void usunAdresata();
+    void wyszukajAdresataDoEdycji();
 };
 
 #endif

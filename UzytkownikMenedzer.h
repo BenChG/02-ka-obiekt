@@ -18,7 +18,6 @@ class UzytkownikMenedzer
     int idZalogowanegoUzytkownika;
 
     int logowanieUzytkownika(Uzytkownik uzytkownik, string nazwa);
-    void wyswietlDaneUzytkownika(Uzytkownik uzytkownik);
     string edytujUzytkownika(Uzytkownik uzytkownik, string linia, string noweHaslo);
 
 public:
@@ -36,6 +35,7 @@ public:
     int pobierzIdZalogowanegoUzytkownika();
     void zmianaHaslaUzytkownika();
     void wylogujUzytkownika();
+    bool czyUzytkownikJestZalogowany();
 };
 
 #endif

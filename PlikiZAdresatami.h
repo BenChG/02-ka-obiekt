@@ -26,6 +26,10 @@ public:
     vector <Adresat> wczytajAdresatowZPliku();
     vector <string> wczytajLinieZPlikuDoWektora();
     void dodajNowegoAdresataDoPlikuZAdresatami (int idA, int idU, string imie, string nazwisko, string tel, string email, string adres);
+    string usunAdresataZPliku(int adresatDoUsuniecia, int idZalogowanegoUzytkownika, vector <string> linieAdresatow);
+    void edytujAdresataWPliku(int adresatDoUsuniecia, int idZalogowanegoUzytkownika, char wybor, vector <string> linieAdresatow , vector <Adresat> adresaci);
+    string zmienDaneAdresata(Adresat adresat, string linia, string zmianaDanych, char wybor);
+
 };
 
 #endif
